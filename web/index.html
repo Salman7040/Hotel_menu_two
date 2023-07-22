@@ -1,121 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <style>
-    #d1 {
-      width: 200px;
-      display: inline-block;
-    }
+    <head>
+        <style>
+
+
+            #d1 {
+                width: 200px;
+                display: inline-block;
+            }
 
 
 
-    #d3 {
-      width: 200px;
-      display: inline-block;
-    }
+            #d3 {
+                width: 200px;
+                display: inline-block;
+            }
 
-  
-    iframe{
-      height: 475px;
-      width: 400px;
-     
-    }
 
-    th {
+            iframe{
+                height: 470px;
+                width: 400px;
 
-      border: 2px solid red;
-    }
+            }
 
-    td {
-      border: 2px solid green;
+            th {
 
-    }
-  </style>
+                border: 2px solid red;
+            }
 
-</head>
+            td {
+                border: 2px solid green;
 
-<body>
-    <button onclick="show()" >Your Selected Item's </button><br><br>
-  <form action="MyNewServlet" method="get" onsubmit="return  itme()">
-    <input type="button" value="Tap Clean Screen" onclick="remove()">
-     <input type="hidden" value="sub" name="show">
-    <input type="submit" value="Confirm Your Order"><br><br>
-    <div id="d1">
-      <label for="menu">Select Food Item's</label><br>
-      <select name="menu" id="menu">
-        <option>--Select--</option>
-        <option value="Tea">Tea Price:100</option>
-        <option value="Cofee">Cofee Price:200</option>
-        <option value="Samosa">Samosa Price:300</option>
-      </select>
+            }
+        </style>
 
-    </div>
+    </head>
 
-    <div id="d3">
-      <label for="Quantity">Food Price</label><br>
-      <select name="Quantity" id="Quantity">
-        <option>--Select Quantity--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div><br>
-    <div id="ans1">
+    <body>
+        <button onclick="show()" >Your Selected Item's </button><br><br>
+        <form action="MyNewServlet" method="get" onsubmit="return  itme()">
+            <input type="button" value="Tap Clean Screen" onclick="remove()">
+            <input type="hidden" value="sub" name="show">
+            <input type="submit" value="Confirm Your Order"><br><br>
+            <div id="d1">
+                <label for="menu">Select Food Item's</label><br>
+                <select name="menu" id="menu">
+                    <option>--Select--</option>
+                    <option value="Tea/15">Tea Price:15</option>
+                    <option value="Cofee/20">Cofee Price:20</option>
+                    <option value="Samosa/25">Samosa Price:25</option>
+                    <option value="Lassi/30">Lassi Price:30</option>
+                    <option value="Masla Dhosa/60">Masla Dhosa Price:60</option>
+                    <option value="Chicken Biryani/120">Chicken Biryani Price :120</option>
+                    
+                </select>
 
-    </div>
-    
-  </form>
+            </div>
 
-  <script>
-    let myans = document.getElementById("ans1");
-    let m1 = document.getElementById("menu");
+            <div id="d3">
+                <label for="Quantity">Food Price</label><br>
+                <select name="Quantity" id="Quantity">
+                    <option>--Select Quantity--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="5">10</option>
+                    <option value="10">10</option>
+                </select>
+            </div><br>
+            <div id="ans1">
 
-    let q1 = document.getElementById("Quantity");
+            </div>
 
-    var i = 1;
-    function itme() {
-    
-      if (m1.value == "--Select--") {
-        alert("Keep Select Food item's......!");
-        return false;
-      }
-      else if (q1.value == "--Select Quantity--") {
-        alert("Keep Select Quantity Of Item's.......!");
-        return false;
-      }
+        </form>
 
-      else {
-        return true;
-      }
-    }
+        <script>
+            let myans = document.getElementById("ans1")
+            let m1 = document.getElementById("menu")
 
-    function remove() {
-      myans.innerHTML = "    "
-      i = 1;
+            let q1 = document.getElementById("Quantity")
 
-    }
+            var i = 1
+            function itme() {
 
-    function show(){
-      if (m1.value == "--Select--") {
-        alert("Keep Select Food item's......!");
-        
-      }
-      else if (q1.value == "--Select Quantity--") {
-        alert("Keep Select Quantity Of Item's.......!");
-        
-      }
+                if (m1.value == "--Select--") {
+                    alert("Keep Select Food item's......!")
+                    return false
+                } else if (q1.value == "--Select Quantity--") {
+                    alert("Keep Select Quantity Of Item's.......!")
+                    return false
+                } else {
+                    document.cookie = "user=open"
+                    if (document.cookie.length != 0) {
+                        return true
+                    } else {
 
-      else {
-      myans.innerHTML="<iframe src=' myshow.html' ></iframe>";
-      }   
-  
-    }
+                        return false;
+                        alert("Not Confirm..")
+                    }
+                }
+            }
 
-  </script>
+            function remove() {
+                myans.innerHTML = "    "
+                i = 1
 
-</body>
+            }
+            var x = []
+            function show() {
+
+                x = document.cookie.split("=")
+                if (x[1] == "open") {
+                    myans.innerHTML = "<iframe src=' myshow.html' ></iframe>"
+                } else {
+                    alert("Confirm Your Order Atleast O nce...");
+                }
+
+
+            }
+
+        </script>
+
+    </body>
 
 </html>

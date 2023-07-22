@@ -8,10 +8,28 @@
             <input type="submit" value="Clik To See Your Item" >
         </form>
         
-         <form action="MyNewServlet" method="Get">
+        <form action="MyNewServlet" method="Get" >
             <input type="hidden"  value="remove" name="show"><br>
-            <input type="submit" value="Remove All Item's" >
+            <input type="submit" value="Tap Remove Unwanted Item's"  ><br>
+          Select Unwanted Item Name :<br>
+             <select name="rem" >
+                    <option>--Select--</option>
+                    <option value="Tea">Tea </option>
+                    <option value="Cofee">Cofee </option>
+                    <option value="Samosa">Samosa </option>
+                    <option value="Lassi">Lassi </option>
+                    <option value="Masla Dhosa">Masla Dhosa </option>
+                    <option value="Chicken Biryani">Chicken Biryani </option>                   
+                </select>             
         </form>
         
+         <form action="MyNewServlet" method="Get">
+            <input type="hidden"  value="removeall" name="show"><br>
+            <input type="submit" value="Tap Clean All Item's" ><br>            
+        </form>
+        <script>
+            
+          
+        </script>
     </body>
 </html>
